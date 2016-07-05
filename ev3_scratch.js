@@ -103,7 +103,7 @@ var SYSTEM_COMMAND = "SYSTEM_COMMAND";
 
 var frequencies = { "C4" : 262, "D4" : 294, "E4" : 330, "F4" : 349, "G4" : 392, "A4" : 440, "B4" : 494, "C5" : 523, "D5" : 587, "E5" : 659, "F5" : 698, "G5" : 784, "A5" : 880, "B5" : 988, "C6" : 1047, "D6" : 1175, "E6" : 1319, "F6" : 1397, "G6" : 1568, "A6" : 1760, "B6" : 1976, "C#4" : 277, "D#4" : 311, "F#4" : 370, "G#4" : 415, "A#4" : 466, "C#5" : 554, "D#5" : 622, "F#5" : 740, "G#5" : 831, "A#5" : 932, "C#6" : 1109, "D#6" : 1245, "F#6" : 1480, "G#6" : 1661, "A#6" : 1865 };
 
-var colors = [ "none", "black", "blue", "green", "yellow", "red", "white"];
+var colors = [ "无", "黑色", "蓝色", "绿色", "黄色", "红色", "白色"];
 
 var IRbuttonNames = ['Top Left', 'Bottom Left', 'Top Right', 'Bottom Right', 'Top Bar'];
 var IRbuttonCodes = [1,            2,              3,          4,              9];
@@ -1366,20 +1366,20 @@ function(ext)
      var descriptor = {
      blocks: [
               ['w', 'drive %m.dualMotors %m.turnStyle %n seconds',         'steeringControl',  'B+C', 'forward', 3],
-              [' ', 'start motor %m.whichMotorPort speed %n',              'startMotors',      'B+C', 100],
-              [' ', 'rotate motor %m.whichMotorPort speed %n by %n degrees then %m.brakeCoast',              'motorDegrees',      'A', 100, 360, 'brake'],
-              [' ', 'stop all motors %m.brakeCoast',                       'allMotorsOff',     'brake'],
-              ['h', 'when button pressed on port %m.whichInputPort',       'whenButtonPressed','1'],
-              ['h', 'when IR remote %m.buttons pressed port %m.whichInputPort', 'whenRemoteButtonPressed','Top Left', '1'],
-              ['R', 'button pressed %m.whichInputPort',                    'readTouchSensorPort',   '1'],
-              ['w', 'play note %m.note duration %n ms',                    'playTone',         'C5', 500],
-              ['w', 'play frequency %n duration %n ms',                    'playFreq',         '262', 500],
+              [' ', '启动马达 %m.whichMotorPort 速度 %n',              'startMotors',      'B+C', 100],
+              [' ', '旋转马达 %m.whichMotorPort 速度 %n 设置 %n 角度 then %m.brakeCoast',              'motorDegrees',      'A', 100, 360, 'brake'],
+              [' ', '停止所有马达 %m.刹车滑行',                       'allMotorsOff',     'brake'],
+              ['h', '当按钮被按下在 %m.whichInputPort',       'whenButtonPressed','1'],
+              ['h', '当红外线 %m.buttons 按下在端口 %m.whichInputPort', 'whenRemoteButtonPressed','Top Left', '1'],
+              ['R', '按钮按下 %m.whichInputPort',                    'readTouchSensorPort',   '1'],
+              ['w', '播放声音 %m.note 间隔 %n ms',                    'playTone',         'C5', 500],
+              ['w', '播放频率 %n 间隔 %n ms',                    'playFreq',         '262', 500],
               ['R', 'light sensor %m.whichInputPort %m.lightSensorMode',   'readColorSensorPort',   '1', 'color'],
               //    ['w', 'wait until light sensor %m.whichInputPort detects black line',   'waitUntilDarkLinePort',   '1'],
-              ['R', 'measure distance %m.whichInputPort',                  'readDistanceSensorPort',   '1'],
-              ['R', 'remote button %m.whichInputPort',                     'readRemoteButtonPort',   '1'],
+              ['R', '测量距离 %m.whichInputPort',                  'readDistanceSensorPort',   '1'],
+              ['R', '远程按钮 %m.whichInputPort',                     'readRemoteButtonPort',   '1'],
               // ['R', 'gyro  %m.gyroMode %m.whichInputPort',                 'readGyroPort',  'angle', '1'],
-              ['R', 'motor %m.motorInputMode %m.whichMotorIndividual',     'readFromMotor',   'position', 'A'],
+              ['R', '马达 %m.motorInputMode %m.whichMotorIndividual',     'readFromMotor',   'position', 'A'],
               
               //    ['R', 'battery level',   'readBatteryLevel'],
               //  [' ', 'reconnect', 'reconnectToDevice'],
@@ -1388,8 +1388,8 @@ function(ext)
      whichMotorPort:   ['A', 'B', 'C', 'D', 'A+D', 'B+C'],
      whichMotorIndividual:   ['A', 'B', 'C', 'D'],
      dualMotors:       ['A+D', 'B+C'],
-     turnStyle:        ['forward', 'reverse', 'right', 'left'],
-     brakeCoast:       ['brake', 'coast'],
+     turnStyle:        ['向前', '向后', '向右', '向左'],
+     brakeCoast:       ['刹车', '渐静'],
      lightSensorMode:  ['reflected', 'ambient', 'color'],
      motorInputMode: ['position', 'speed'],
      gyroMode: ['angle', 'rate'],
