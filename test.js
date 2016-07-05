@@ -16,7 +16,7 @@
     var descriptor = {
         blocks: [
             // Block type, block name, function name
-            [' ', 'my first block', 'my_first_block'],
+            [' ', '我的方块', '我的方块'],
         ]
     };
 
